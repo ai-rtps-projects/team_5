@@ -1,0 +1,1733 @@
+{
+  "metadata": {
+    "title": "University Education Chatbot Database",
+    "version": "1.3",
+    "language": "English",
+    "topics": [
+      "course_schedules",
+      "assignment_deadlines",
+      "exam_details",
+      "fee_admission",
+      "scholarships"
+    ],
+    "total_subjects": 20,
+    "created": "2026-04-14",
+    "last_updated": "2026-04-14"
+  },
+  "subjects": [
+    "Mathematics",
+    "Physics",
+    "Chemistry",
+    "Biology",
+    "Computer Science",
+    "Electronics",
+    "Mechanical Engineering",
+    "Civil Engineering",
+    "Electrical Engineering",
+    "English Literature",
+    "History",
+    "Economics",
+    "Business Administration",
+    "Psychology",
+    "Sociology",
+    "Political Science",
+    "Environmental Science",
+    "Statistics",
+    "Biotechnology",
+    "Data Science"
+  ],
+  "intents": [
+    {
+      "id": "INT_SUBJECTS_ALL",
+      "topic": "subjects_info",
+      "subject": "General",
+      "intent_name": "show_all_subjects",
+      "patterns": [
+        "show all subjects",
+        "list all subjects",
+        "what are all the subjects",
+        "show me all subjects",
+        "what subjects are available",
+        "all subjects",
+        "subjects list",
+        "what are the subjects offered",
+        "show subjects",
+        "display all subjects",
+        "what courses are available",
+        "list of subjects"
+      ],
+      "response": "Here are all the subjects offered at the university:\n\n1. Mathematics\n2. Physics\n3. Chemistry\n4. Biology\n5. Computer Science\n6. Electronics\n7. Mechanical Engineering\n8. Civil Engineering\n9. Electrical Engineering\n10. English Literature\n11. History\n12. Economics\n13. Business Administration\n14. Psychology\n15. Sociology\n16. Political Science\n17. Environmental Science\n18. Statistics\n19. Biotechnology\n20. Data Science\n\nYou can ask me about the topics of any subject. For example: 'Show topics of Data Science' or 'What are the topics in Computer Science?'",
+      "tags": [
+        "subjects",
+        "all subjects",
+        "courses",
+        "list",
+        "available subjects"
+      ]
+    },
+    {
+      "id": "INT_SUBJECT_TOPICS",
+      "topic": "subjects_info",
+      "subject": "All",
+      "intent_name": "show_subject_topics",
+      "patterns": [
+        "show topics of [subject]",
+        "what are the topics in [subject]",
+        "topics for [subject]",
+        "syllabus topics of [subject]",
+        "list topics of [subject]",
+        "what is taught in [subject]",
+        "topics covered in [subject]",
+        "show me the topics for [subject]",
+        "what topics are in [subject]"
+      ],
+      "response": "When a student asks for topics of a specific subject, look it up in the 'subject_syllabus_qa' section and return the 'topics' array for that subject. Format the response as a numbered list. Below are all subject topics for reference:\n\nMathematics: Calculus, Linear Algebra, Differential Equations, Probability, Number Theory\nPhysics: Mechanics, Electromagnetism, Thermodynamics, Quantum Physics, Optics\nChemistry: Organic Chemistry, Inorganic Chemistry, Physical Chemistry, Analytical Chemistry, Biochemistry\nBiology: Cell Biology, Genetics, Ecology, Human Physiology, Evolution\nComputer Science: Data Structures, Algorithms, Operating Systems, DBMS, Networking, Machine Learning\nElectronics: Circuit Theory, Digital Electronics, Microprocessors, VLSI, Signal Processing\nMechanical Engineering: Thermodynamics, Fluid Mechanics, Machine Design, Manufacturing, CAD/CAM\nCivil Engineering: Structural Analysis, Geotechnical Engineering, Fluid Mechanics, Construction Management, Surveying\nElectrical Engineering: Power Systems, Control Systems, Electrical Machines, Power Electronics, Renewable Energy\nEnglish Literature: British Literature, American Literature, Poetry, Drama, Literary Theory\nHistory: Ancient Civilizations, Medieval History, Modern History, World Wars, Post-Colonial Studies\nEconomics: Microeconomics, Macroeconomics, Econometrics, Development Economics, International Trade\nBusiness Administration: Management, Marketing, Finance, HRM, Operations, Entrepreneurship\nPsychology: Cognitive Psychology, Developmental Psychology, Social Psychology, Abnormal Psychology, Research Methods\nSociology: Social Theory, Research Methods, Gender Studies, Urban Sociology, Cultural Studies\nPolitical Science: Political Theory, Comparative Politics, International Relations, Public Policy, Governance\nEnvironmental Science: Ecology, Climate Change, Pollution Control, Environmental Policy, Sustainability\nStatistics: Probability Theory, Statistical Inference, Regression, Time Series, Sampling Methods\nBiotechnology: Molecular Biology, Genetics, Bioinformatics, Microbiology, Bioprocess Engineering\nData Science: Machine Learning, Big Data, Python for Data Science, Data Visualization, Deep Learning, NLP",
+      "tags": [
+        "topics",
+        "syllabus",
+        "subject topics",
+        "what is taught",
+        "curriculum"
+      ]
+    },
+    {
+      "id": "INT001",
+      "topic": "course_schedules",
+      "subject": "General",
+      "intent_name": "ask_timetable",
+      "patterns": [
+        "What is my class schedule?",
+        "Show me my timetable",
+        "When is my next class?",
+        "What time does my lecture start?",
+        "When does class begin today?"
+      ],
+      "response": "Your class schedule is available on the university portal under 'My Timetable'. Log in and navigate to Academics > Timetable to view your full weekly schedule.",
+      "tags": [
+        "schedule",
+        "timetable",
+        "class",
+        "lecture"
+      ]
+    },
+    {
+      "id": "INT002",
+      "topic": "course_schedules",
+      "subject": "Mathematics",
+      "intent_name": "math_schedule",
+      "patterns": [
+        "When is my Mathematics class?",
+        "What day is Math lecture?",
+        "When does Maths class happen?",
+        "Math timetable this week?"
+      ],
+      "response": "Mathematics lectures are typically scheduled on [Day] at [Time] in [Hall]. Please verify on the portal as schedules may vary each semester.",
+      "tags": [
+        "mathematics",
+        "math",
+        "maths",
+        "schedule"
+      ]
+    },
+    {
+      "id": "INT003",
+      "topic": "course_schedules",
+      "subject": "Physics",
+      "intent_name": "physics_schedule",
+      "patterns": [
+        "When is Physics class?",
+        "Physics lecture schedule?",
+        "What time is my Physics lab?",
+        "When is Physics practical?"
+      ],
+      "response": "Physics theory classes and lab sessions are listed on your timetable. Labs are usually 2-hour sessions. Check the portal under Academics > Timetable > Physics.",
+      "tags": [
+        "physics",
+        "schedule",
+        "lab",
+        "practical"
+      ]
+    },
+    {
+      "id": "INT004",
+      "topic": "course_schedules",
+      "subject": "Chemistry",
+      "intent_name": "chemistry_schedule",
+      "patterns": [
+        "When is Chemistry class?",
+        "Chemistry lab schedule?",
+        "What time is the Chemistry lecture?",
+        "Is there Chemistry practical this week?"
+      ],
+      "response": "Chemistry classes include theory and practical sessions. Your lab schedule is on the portal. Safety guidelines must be followed during all Chemistry practicals.",
+      "tags": [
+        "chemistry",
+        "lab",
+        "practical",
+        "schedule"
+      ]
+    },
+    {
+      "id": "INT005",
+      "topic": "course_schedules",
+      "subject": "Computer Science",
+      "intent_name": "cs_schedule",
+      "patterns": [
+        "When is Computer Science class?",
+        "CS lecture schedule?",
+        "When is my programming lab?",
+        "What time is the coding class?",
+        "When is the CS lab session?"
+      ],
+      "response": "Computer Science lectures and lab sessions (programming labs) are listed on the portal. Lab sessions require your student login to access the lab systems.",
+      "tags": [
+        "computer science",
+        "CS",
+        "programming",
+        "lab",
+        "coding"
+      ]
+    },
+    {
+      "id": "INT006",
+      "topic": "course_schedules",
+      "subject": "Biology",
+      "intent_name": "biology_schedule",
+      "patterns": [
+        "When is Biology class?",
+        "Biology lab schedule?",
+        "When is the Botany or Zoology class?",
+        "What time is my Biology lecture?"
+      ],
+      "response": "Biology classes include theory, lab, and field sessions. Check your portal for the full Biology timetable including all lab practicals.",
+      "tags": [
+        "biology",
+        "botany",
+        "zoology",
+        "lab",
+        "schedule"
+      ]
+    },
+    {
+      "id": "INT007",
+      "topic": "course_schedules",
+      "subject": "General",
+      "intent_name": "semester_start",
+      "patterns": [
+        "When does the new semester start?",
+        "When does semester begin?",
+        "What is the semester start date?",
+        "When do classes resume?"
+      ],
+      "response": "The new semester start date is published in the Academic Calendar on the university website. Go to Academics > Academic Calendar to find semester start and end dates.",
+      "tags": [
+        "semester",
+        "start",
+        "academic calendar"
+      ]
+    },
+    {
+      "id": "INT008",
+      "topic": "course_schedules",
+      "subject": "General",
+      "intent_name": "class_cancellation",
+      "patterns": [
+        "Is class cancelled today?",
+        "Any cancellations today?",
+        "Is there a holiday tomorrow?",
+        "Are classes suspended?"
+      ],
+      "response": "Class cancellations and holiday notices are posted on the portal under 'Notices' and sent to your registered email. Check the notice board for real-time updates.",
+      "tags": [
+        "cancellation",
+        "holiday",
+        "suspended",
+        "notice"
+      ]
+    },
+    {
+      "id": "INT009",
+      "topic": "assignment_deadlines",
+      "subject": "General",
+      "intent_name": "ask_deadline",
+      "patterns": [
+        "When is my assignment due?",
+        "What is the submission deadline?",
+        "When do I have to submit my project?",
+        "Assignment due date?",
+        "How many days left for submission?"
+      ],
+      "response": "The general deadline for all subject assignments is May 05, 2026. Please check your LMS for subject-specific submission links.",
+      "tags": [
+        "assignment",
+        "deadline",
+        "submission",
+        "due date"
+      ]
+    },
+    {
+      "id": "INT010",
+      "topic": "assignment_deadlines",
+      "subject": "Mathematics",
+      "intent_name": "math_assignment",
+      "patterns": [
+        "When is the Math assignment due?",
+        "Mathematics project deadline?",
+        "When to submit Maths homework?",
+        "Math problem set due date?"
+      ],
+      "response": "The Mathematics assignment submission deadline is May 05, 2026. Please upload your work to the LMS before 11:59 PM.",
+      "tags": [
+        "mathematics",
+        "assignment",
+        "deadline",
+        "problem set"
+      ]
+    },
+    {
+      "id": "INT011",
+      "topic": "assignment_deadlines",
+      "subject": "Computer Science",
+      "intent_name": "cs_assignment",
+      "patterns": [
+        "When is the programming assignment due?",
+        "CS project submission date?",
+        "Coding assignment deadline?",
+        "When to submit my software project?",
+        "Data structures assignment due?"
+      ],
+      "response": "The Computer Science assignment submission deadline is May 01, 2026. Please upload your work to the LMS before 11:59 PM.",
+      "tags": [
+        "CS",
+        "programming",
+        "coding",
+        "assignment",
+        "project",
+        "deadline"
+      ]
+    },
+    {
+      "id": "INT012",
+      "topic": "assignment_deadlines",
+      "subject": "English Literature",
+      "intent_name": "english_assignment",
+      "patterns": [
+        "When is the essay due?",
+        "English literature assignment deadline?",
+        "When to submit my book review?",
+        "Essay submission date?",
+        "Research paper due date for English?"
+      ],
+      "response": "The English Literature assignment submission deadline is May 01, 2026. Please upload your work to the LMS before 11:59 PM.",
+      "tags": [
+        "english",
+        "essay",
+        "literature",
+        "assignment",
+        "deadline"
+      ]
+    },
+    {
+      "id": "INT013",
+      "topic": "assignment_deadlines",
+      "subject": "General",
+      "intent_name": "extension_request",
+      "patterns": [
+        "Can I get an extension?",
+        "How to request assignment extension?",
+        "I need more time for my assignment",
+        "Can the deadline be extended?",
+        "Extension request process?"
+      ],
+      "response": "Extension requests must be submitted to your course faculty at least 48 hours before the deadline. Go to the portal > Academics > Extension Request, or email your faculty directly with a valid reason.",
+      "tags": [
+        "extension",
+        "deadline",
+        "request",
+        "more time"
+      ]
+    },
+    {
+      "id": "INT014",
+      "topic": "assignment_deadlines",
+      "subject": "General",
+      "intent_name": "how_to_submit",
+      "patterns": [
+        "How do I submit my assignment?",
+        "Where to upload my assignment?",
+        "Assignment submission process?",
+        "How to submit project online?",
+        "Upload assignment on portal?"
+      ],
+      "response": "Log in to the LMS > My Courses > Select Subject > Assignments > Click Submit > Upload your file (PDF/DOCX/ZIP as specified). You will receive an email confirmation after submission.",
+      "tags": [
+        "submit",
+        "upload",
+        "assignment",
+        "process",
+        "LMS"
+      ]
+    },
+    {
+      "id": "INT015",
+      "topic": "assignment_deadlines",
+      "subject": "General",
+      "intent_name": "late_submission",
+      "patterns": [
+        "What if I miss the deadline?",
+        "Penalty for late submission?",
+        "I missed my assignment deadline",
+        "Late submission policy?",
+        "Can I submit after the due date?"
+      ],
+      "response": "Late submissions may result in a grade penalty (typically 10% per day) as per university policy. Contact your faculty immediately. In genuine emergencies, submit a late submission form via the portal.",
+      "tags": [
+        "late",
+        "penalty",
+        "missed",
+        "deadline",
+        "submission"
+      ]
+    },
+    {
+      "id": "INT016",
+      "topic": "exam_details",
+      "subject": "General",
+      "intent_name": "exam_schedule",
+      "patterns": [
+        "When are the exams?",
+        "Exam timetable?",
+        "When is the semester exam?",
+        "Exam schedule this semester?",
+        "What date is my exam?"
+      ],
+      "response": "The general semester exams are scheduled from May 15, 2026 to June 14, 2026.",
+      "tags": [
+        "exam",
+        "schedule",
+        "timetable",
+        "semester exam"
+      ]
+    },
+    {
+      "id": "INT017",
+      "topic": "exam_details",
+      "subject": "Mathematics",
+      "intent_name": "math_exam",
+      "patterns": [
+        "When is the Maths exam?",
+        "Mathematics exam date?",
+        "Math final exam schedule?",
+        "When is the Calculus exam?"
+      ],
+      "response": "The Mathematics exam date is listed in the semester exam timetable on the portal. The exam typically covers all topics from the syllabus. Bring your hall ticket and university ID.",
+      "tags": [
+        "mathematics",
+        "exam",
+        "calculus",
+        "date"
+      ]
+    },
+    {
+      "id": "INT018",
+      "topic": "exam_details",
+      "subject": "Physics",
+      "intent_name": "physics_exam",
+      "patterns": [
+        "When is the Physics exam?",
+        "Physics practical exam date?",
+        "Physics theory exam schedule?",
+        "When is Physics viva?"
+      ],
+      "response": "Physics has both theory and practical exams. Theory exam dates are in the main timetable. Practical exam dates are communicated separately by the Physics department. Check your portal.",
+      "tags": [
+        "physics",
+        "exam",
+        "practical",
+        "viva",
+        "theory"
+      ]
+    },
+    {
+      "id": "INT019",
+      "topic": "exam_details",
+      "subject": "Computer Science",
+      "intent_name": "cs_exam",
+      "patterns": [
+        "When is the Computer Science exam?",
+        "CS theory exam date?",
+        "Programming exam schedule?",
+        "When is the Data Structures exam?",
+        "CS practical viva date?"
+      ],
+      "response": "CS exams include both theory and practical (lab) exams. Theory exams are in the main timetable. Lab exams are scheduled by the CS department — check the portal for the lab exam date.",
+      "tags": [
+        "CS",
+        "computer science",
+        "exam",
+        "practical",
+        "lab exam",
+        "viva"
+      ]
+    },
+    {
+      "id": "INT020",
+      "topic": "exam_details",
+      "subject": "General",
+      "intent_name": "hall_ticket",
+      "patterns": [
+        "How to download hall ticket?",
+        "Where is my admit card?",
+        "Hall ticket not generated?",
+        "How to get exam hall ticket?",
+        "Download admit card?"
+      ],
+      "response": "Hall tickets are available on the student portal 10 days before exams. Go to Portal > Examinations > Hall Ticket > Download. If not generated, contact the exam cell immediately.",
+      "tags": [
+        "hall ticket",
+        "admit card",
+        "download",
+        "exam"
+      ]
+    },
+    {
+      "id": "INT021",
+      "topic": "exam_details",
+      "subject": "General",
+      "intent_name": "results",
+      "patterns": [
+        "When will results come?",
+        "How to check my results?",
+        "Exam result announcement date?",
+        "Where to see my marks?",
+        "Results declared?"
+      ],
+      "response": "Results are announced within 4–6 weeks of the last exam. Go to Portal > Examinations > Results and enter your roll number. You will receive an SMS and email when results are published.",
+      "tags": [
+        "results",
+        "marks",
+        "grades",
+        "announced"
+      ]
+    },
+    {
+      "id": "INT022",
+      "topic": "exam_details",
+      "subject": "General",
+      "intent_name": "revaluation",
+      "patterns": [
+        "How to apply for revaluation?",
+        "I want to recheck my answer sheet",
+        "Revaluation request process?",
+        "Apply for re-totalling?",
+        "Challenge my exam marks?"
+      ],
+      "response": "Revaluation requests must be submitted within 7 days of result announcement. Go to Portal > Examinations > Revaluation Request. A fee applies. Results of revaluation are final.",
+      "tags": [
+        "revaluation",
+        "re-evaluation",
+        "recheck",
+        "marks",
+        "answer sheet"
+      ]
+    },
+    {
+      "id": "INT023",
+      "topic": "exam_details",
+      "subject": "General",
+      "intent_name": "exam_rules",
+      "patterns": [
+        "What to bring for exam?",
+        "Exam rules and regulations?",
+        "Can I bring calculator to exam?",
+        "Is mobile allowed in exam hall?",
+        "Exam day instructions?"
+      ],
+      "response": "Bring your hall ticket and university ID card. Scientific calculators are allowed only for specified subjects. Mobile phones and electronic devices are strictly prohibited in exam halls.",
+      "tags": [
+        "exam rules",
+        "calculator",
+        "mobile",
+        "hall ticket",
+        "instructions"
+      ]
+    },
+    {
+      "id": "INT024",
+      "topic": "fee_admission",
+      "subject": "General",
+      "intent_name": "fee_structure",
+      "patterns": [
+        "How much is the semester fee?",
+        "What is the fee structure?",
+        "Total course fee?",
+        "How much do I need to pay?",
+        "Fee details for my course?"
+      ],
+      "response": "Fee structures vary by programme and year. Log in to the portal > Finance > Fee Structure to view the detailed breakdown including tuition, lab, library, and other fees for your course.",
+      "tags": [
+        "fee",
+        "fee structure",
+        "tuition",
+        "cost",
+        "payment"
+      ]
+    },
+    {
+      "id": "INT025",
+      "topic": "fee_admission",
+      "subject": "General",
+      "intent_name": "fee_deadline",
+      "patterns": [
+        "When is the last date to pay fee?",
+        "Fee payment deadline?",
+        "Due date for fee payment?",
+        "When should I pay my fees?",
+        "Fee last date?"
+      ],
+      "response": "The fee payment deadline is published on the portal under Finance > Fee Payment. Late payment attracts a fine. Pay before the deadline to avoid academic restrictions.",
+      "tags": [
+        "fee deadline",
+        "last date",
+        "payment due",
+        "fine"
+      ]
+    },
+    {
+      "id": "INT026",
+      "topic": "fee_admission",
+      "subject": "General",
+      "intent_name": "how_to_pay",
+      "patterns": [
+        "How to pay fees online?",
+        "Fee payment process?",
+        "Can I pay by UPI?",
+        "Online fee payment method?",
+        "Pay semester fee on portal?"
+      ],
+      "response": "Pay online via Portal > Finance > Pay Fee. Accepted methods: UPI, Net Banking, Credit/Debit Card. A payment receipt is emailed to you automatically after successful payment.",
+      "tags": [
+        "pay fee",
+        "online payment",
+        "UPI",
+        "net banking",
+        "receipt"
+      ]
+    },
+    {
+      "id": "INT027",
+      "topic": "fee_admission",
+      "subject": "General",
+      "intent_name": "scholarship",
+      "patterns": [
+        "Is scholarship available?",
+        "How to apply for scholarship?",
+        "Merit scholarship details?",
+        "Government scholarship for students?",
+        "Am I eligible for scholarship?"
+      ],
+      "response": "Merit and need-based scholarships are available. Visit Portal > Scholarships to see all available schemes, eligibility criteria, and application deadlines. Government schemes like NSP are also applicable.",
+      "tags": [
+        "scholarship",
+        "merit",
+        "financial aid",
+        "government",
+        "eligibility"
+      ]
+    },
+    {
+      "id": "INT028",
+      "topic": "fee_admission",
+      "subject": "Computer Science",
+      "intent_name": "cs_admission",
+      "patterns": [
+        "What is the admission process for Computer Science?",
+        "CS programme eligibility?",
+        "How to apply for B.Tech CS?",
+        "CS entrance exam requirement?",
+        "Cutoff for Computer Science admission?"
+      ],
+      "response": "B.Tech Computer Science admission requires 60%+ in 10+2 (PCM/PCB) and a valid entrance score (JEE/state-level). Apply on the admissions portal when applications open. Cutoffs vary each year.",
+      "tags": [
+        "CS",
+        "computer science",
+        "admission",
+        "B.Tech",
+        "eligibility",
+        "cutoff"
+      ]
+    },
+    {
+      "id": "INT029",
+      "topic": "fee_admission",
+      "subject": "General",
+      "intent_name": "admission_process",
+      "patterns": [
+        "How to apply for admission?",
+        "Admission process for UG?",
+        "When does admission open?",
+        "Online admission application?",
+        "How to fill admission form?"
+      ],
+      "response": "Admissions open in [Month]. Register on the admissions portal > Fill the application form > Upload documents > Pay the application fee > Track status online. You will be notified of selection.",
+      "tags": [
+        "admission",
+        "apply",
+        "application",
+        "UG",
+        "PG",
+        "form"
+      ]
+    },
+    {
+      "id": "INT030",
+      "topic": "fee_admission",
+      "subject": "General",
+      "intent_name": "fee_receipt",
+      "patterns": [
+        "How to get fee receipt?",
+        "Download payment receipt?",
+        "I need a fee certificate",
+        "Proof of fee payment?",
+        "Fee receipt for scholarship?"
+      ],
+      "response": "Download your fee receipt from Portal > Finance > Payment History. Click on any completed transaction and click 'Download Receipt'. This is an official document accepted for scholarship and tax purposes.",
+      "tags": [
+        "receipt",
+        "fee certificate",
+        "download",
+        "payment proof"
+      ]
+    },
+    {
+      "id": "INT_EX_100",
+      "topic": "exam_details",
+      "subject": "Mathematics",
+      "intent_name": "mathematics_exam",
+      "patterns": [
+        "When is the Mathematics exam?",
+        "Mathematics exam date?",
+        "Date for Mathematics final?"
+      ],
+      "response": "The Mathematics final exam is scheduled for May 15, 2026 at 10:00 AM.",
+      "tags": [
+        "mathematics",
+        "exam",
+        "date"
+      ]
+    },
+    {
+      "id": "INT_AS_101",
+      "topic": "assignment_deadlines",
+      "subject": "Mathematics",
+      "intent_name": "mathematics_assignment",
+      "patterns": [
+        "When is the Mathematics assignment due?",
+        "Mathematics project deadline?",
+        "Submit Mathematics homework date?"
+      ],
+      "response": "The Mathematics assignment submission deadline is May 05, 2026. Please upload your work to the LMS before 11:59 PM.",
+      "tags": [
+        "mathematics",
+        "assignment",
+        "deadline"
+      ]
+    },
+    {
+      "id": "INT_AS_102",
+      "topic": "assignment_deadlines",
+      "subject": "Physics",
+      "intent_name": "physics_assignment",
+      "patterns": [
+        "When is the Physics assignment due?",
+        "Physics project deadline?",
+        "Submit Physics homework date?"
+      ],
+      "response": "The Physics assignment submission deadline is May 04, 2026. Please upload your work to the LMS before 11:59 PM.",
+      "tags": [
+        "physics",
+        "assignment",
+        "deadline"
+      ]
+    },
+    {
+      "id": "INT_EX_103",
+      "topic": "exam_details",
+      "subject": "Chemistry",
+      "intent_name": "chemistry_exam",
+      "patterns": [
+        "When is the Chemistry exam?",
+        "Chemistry exam date?",
+        "Date for Chemistry final?"
+      ],
+      "response": "The Chemistry final exam is scheduled for May 17, 2026 at 10:00 AM.",
+      "tags": [
+        "chemistry",
+        "exam",
+        "date"
+      ]
+    },
+    {
+      "id": "INT_AS_104",
+      "topic": "assignment_deadlines",
+      "subject": "Chemistry",
+      "intent_name": "chemistry_assignment",
+      "patterns": [
+        "When is the Chemistry assignment due?",
+        "Chemistry project deadline?",
+        "Submit Chemistry homework date?"
+      ],
+      "response": "The Chemistry assignment submission deadline is May 03, 2026. Please upload your work to the LMS before 11:59 PM.",
+      "tags": [
+        "chemistry",
+        "assignment",
+        "deadline"
+      ]
+    },
+    {
+      "id": "INT_EX_105",
+      "topic": "exam_details",
+      "subject": "Biology",
+      "intent_name": "biology_exam",
+      "patterns": [
+        "When is the Biology exam?",
+        "Biology exam date?",
+        "Date for Biology final?"
+      ],
+      "response": "The Biology final exam is scheduled for May 18, 2026 at 10:00 AM.",
+      "tags": [
+        "biology",
+        "exam",
+        "date"
+      ]
+    },
+    {
+      "id": "INT_AS_106",
+      "topic": "assignment_deadlines",
+      "subject": "Biology",
+      "intent_name": "biology_assignment",
+      "patterns": [
+        "When is the Biology assignment due?",
+        "Biology project deadline?",
+        "Submit Biology homework date?"
+      ],
+      "response": "The Biology assignment submission deadline is May 02, 2026. Please upload your work to the LMS before 11:59 PM.",
+      "tags": [
+        "biology",
+        "assignment",
+        "deadline"
+      ]
+    },
+    {
+      "id": "INT_EX_107",
+      "topic": "exam_details",
+      "subject": "Computer Science",
+      "intent_name": "computer_science_exam",
+      "patterns": [
+        "When is the Computer Science exam?",
+        "Computer Science exam date?",
+        "Date for Computer Science final?"
+      ],
+      "response": "The Computer Science final exam is scheduled for May 19, 2026 at 10:00 AM.",
+      "tags": [
+        "computer science",
+        "exam",
+        "date"
+      ]
+    },
+    {
+      "id": "INT_AS_108",
+      "topic": "assignment_deadlines",
+      "subject": "Computer Science",
+      "intent_name": "computer_science_assignment",
+      "patterns": [
+        "When is the Computer Science assignment due?",
+        "Computer Science project deadline?",
+        "Submit Computer Science homework date?"
+      ],
+      "response": "The Computer Science assignment submission deadline is May 01, 2026. Please upload your work to the LMS before 11:59 PM.",
+      "tags": [
+        "computer science",
+        "assignment",
+        "deadline"
+      ]
+    },
+    {
+      "id": "INT_EX_109",
+      "topic": "exam_details",
+      "subject": "Electronics",
+      "intent_name": "electronics_exam",
+      "patterns": [
+        "When is the Electronics exam?",
+        "Electronics exam date?",
+        "Date for Electronics final?"
+      ],
+      "response": "The Electronics final exam is scheduled for May 20, 2026 at 10:00 AM.",
+      "tags": [
+        "electronics",
+        "exam",
+        "date"
+      ]
+    },
+    {
+      "id": "INT_AS_110",
+      "topic": "assignment_deadlines",
+      "subject": "Electronics",
+      "intent_name": "electronics_assignment",
+      "patterns": [
+        "When is the Electronics assignment due?",
+        "Electronics project deadline?",
+        "Submit Electronics homework date?"
+      ],
+      "response": "The Electronics assignment submission deadline is May 05, 2026. Please upload your work to the LMS before 11:59 PM.",
+      "tags": [
+        "electronics",
+        "assignment",
+        "deadline"
+      ]
+    },
+    {
+      "id": "INT_EX_111",
+      "topic": "exam_details",
+      "subject": "Mechanical Engineering",
+      "intent_name": "mechanical_engineering_exam",
+      "patterns": [
+        "When is the Mechanical Engineering exam?",
+        "Mechanical Engineering exam date?",
+        "Date for Mechanical Engineering final?"
+      ],
+      "response": "The Mechanical Engineering final exam is scheduled for May 21, 2026 at 10:00 AM.",
+      "tags": [
+        "mechanical engineering",
+        "exam",
+        "date"
+      ]
+    },
+    {
+      "id": "INT_AS_112",
+      "topic": "assignment_deadlines",
+      "subject": "Mechanical Engineering",
+      "intent_name": "mechanical_engineering_assignment",
+      "patterns": [
+        "When is the Mechanical Engineering assignment due?",
+        "Mechanical Engineering project deadline?",
+        "Submit Mechanical Engineering homework date?"
+      ],
+      "response": "The Mechanical Engineering assignment submission deadline is May 04, 2026. Please upload your work to the LMS before 11:59 PM.",
+      "tags": [
+        "mechanical engineering",
+        "assignment",
+        "deadline"
+      ]
+    },
+    {
+      "id": "INT_EX_113",
+      "topic": "exam_details",
+      "subject": "Civil Engineering",
+      "intent_name": "civil_engineering_exam",
+      "patterns": [
+        "When is the Civil Engineering exam?",
+        "Civil Engineering exam date?",
+        "Date for Civil Engineering final?"
+      ],
+      "response": "The Civil Engineering final exam is scheduled for May 22, 2026 at 10:00 AM.",
+      "tags": [
+        "civil engineering",
+        "exam",
+        "date"
+      ]
+    },
+    {
+      "id": "INT_AS_114",
+      "topic": "assignment_deadlines",
+      "subject": "Civil Engineering",
+      "intent_name": "civil_engineering_assignment",
+      "patterns": [
+        "When is the Civil Engineering assignment due?",
+        "Civil Engineering project deadline?",
+        "Submit Civil Engineering homework date?"
+      ],
+      "response": "The Civil Engineering assignment submission deadline is May 03, 2026. Please upload your work to the LMS before 11:59 PM.",
+      "tags": [
+        "civil engineering",
+        "assignment",
+        "deadline"
+      ]
+    },
+    {
+      "id": "INT_EX_115",
+      "topic": "exam_details",
+      "subject": "Electrical Engineering",
+      "intent_name": "electrical_engineering_exam",
+      "patterns": [
+        "When is the Electrical Engineering exam?",
+        "Electrical Engineering exam date?",
+        "Date for Electrical Engineering final?"
+      ],
+      "response": "The Electrical Engineering final exam is scheduled for May 23, 2026 at 10:00 AM.",
+      "tags": [
+        "electrical engineering",
+        "exam",
+        "date"
+      ]
+    },
+    {
+      "id": "INT_AS_116",
+      "topic": "assignment_deadlines",
+      "subject": "Electrical Engineering",
+      "intent_name": "electrical_engineering_assignment",
+      "patterns": [
+        "When is the Electrical Engineering assignment due?",
+        "Electrical Engineering project deadline?",
+        "Submit Electrical Engineering homework date?"
+      ],
+      "response": "The Electrical Engineering assignment submission deadline is May 02, 2026. Please upload your work to the LMS before 11:59 PM.",
+      "tags": [
+        "electrical engineering",
+        "assignment",
+        "deadline"
+      ]
+    },
+    {
+      "id": "INT_EX_117",
+      "topic": "exam_details",
+      "subject": "English Literature",
+      "intent_name": "english_literature_exam",
+      "patterns": [
+        "When is the English Literature exam?",
+        "English Literature exam date?",
+        "Date for English Literature final?"
+      ],
+      "response": "The English Literature final exam is scheduled for May 24, 2026 at 10:00 AM.",
+      "tags": [
+        "english literature",
+        "exam",
+        "date"
+      ]
+    },
+    {
+      "id": "INT_AS_118",
+      "topic": "assignment_deadlines",
+      "subject": "English Literature",
+      "intent_name": "english_literature_assignment",
+      "patterns": [
+        "When is the English Literature assignment due?",
+        "English Literature project deadline?",
+        "Submit English Literature homework date?"
+      ],
+      "response": "The English Literature assignment submission deadline is May 01, 2026. Please upload your work to the LMS before 11:59 PM.",
+      "tags": [
+        "english literature",
+        "assignment",
+        "deadline"
+      ]
+    },
+    {
+      "id": "INT_EX_119",
+      "topic": "exam_details",
+      "subject": "History",
+      "intent_name": "history_exam",
+      "patterns": [
+        "When is the History exam?",
+        "History exam date?",
+        "Date for History final?"
+      ],
+      "response": "The History final exam is scheduled for May 25, 2026 at 10:00 AM.",
+      "tags": [
+        "history",
+        "exam",
+        "date"
+      ]
+    },
+    {
+      "id": "INT_AS_120",
+      "topic": "assignment_deadlines",
+      "subject": "History",
+      "intent_name": "history_assignment",
+      "patterns": [
+        "When is the History assignment due?",
+        "History project deadline?",
+        "Submit History homework date?"
+      ],
+      "response": "The History assignment submission deadline is May 05, 2026. Please upload your work to the LMS before 11:59 PM.",
+      "tags": [
+        "history",
+        "assignment",
+        "deadline"
+      ]
+    },
+    {
+      "id": "INT_EX_121",
+      "topic": "exam_details",
+      "subject": "Economics",
+      "intent_name": "economics_exam",
+      "patterns": [
+        "When is the Economics exam?",
+        "Economics exam date?",
+        "Date for Economics final?"
+      ],
+      "response": "The Economics final exam is scheduled for May 26, 2026 at 10:00 AM.",
+      "tags": [
+        "economics",
+        "exam",
+        "date"
+      ]
+    },
+    {
+      "id": "INT_AS_122",
+      "topic": "assignment_deadlines",
+      "subject": "Economics",
+      "intent_name": "economics_assignment",
+      "patterns": [
+        "When is the Economics assignment due?",
+        "Economics project deadline?",
+        "Submit Economics homework date?"
+      ],
+      "response": "The Economics assignment submission deadline is May 04, 2026. Please upload your work to the LMS before 11:59 PM.",
+      "tags": [
+        "economics",
+        "assignment",
+        "deadline"
+      ]
+    },
+    {
+      "id": "INT_EX_123",
+      "topic": "exam_details",
+      "subject": "Business Administration",
+      "intent_name": "business_administration_exam",
+      "patterns": [
+        "When is the Business Administration exam?",
+        "Business Administration exam date?",
+        "Date for Business Administration final?"
+      ],
+      "response": "The Business Administration final exam is scheduled for May 27, 2026 at 10:00 AM.",
+      "tags": [
+        "business administration",
+        "exam",
+        "date"
+      ]
+    },
+    {
+      "id": "INT_AS_124",
+      "topic": "assignment_deadlines",
+      "subject": "Business Administration",
+      "intent_name": "business_administration_assignment",
+      "patterns": [
+        "When is the Business Administration assignment due?",
+        "Business Administration project deadline?",
+        "Submit Business Administration homework date?"
+      ],
+      "response": "The Business Administration assignment submission deadline is May 03, 2026. Please upload your work to the LMS before 11:59 PM.",
+      "tags": [
+        "business administration",
+        "assignment",
+        "deadline"
+      ]
+    },
+    {
+      "id": "INT_EX_125",
+      "topic": "exam_details",
+      "subject": "Psychology",
+      "intent_name": "psychology_exam",
+      "patterns": [
+        "When is the Psychology exam?",
+        "Psychology exam date?",
+        "Date for Psychology final?"
+      ],
+      "response": "The Psychology final exam is scheduled for May 28, 2026 at 10:00 AM.",
+      "tags": [
+        "psychology",
+        "exam",
+        "date"
+      ]
+    },
+    {
+      "id": "INT_AS_126",
+      "topic": "assignment_deadlines",
+      "subject": "Psychology",
+      "intent_name": "psychology_assignment",
+      "patterns": [
+        "When is the Psychology assignment due?",
+        "Psychology project deadline?",
+        "Submit Psychology homework date?"
+      ],
+      "response": "The Psychology assignment submission deadline is May 02, 2026. Please upload your work to the LMS before 11:59 PM.",
+      "tags": [
+        "psychology",
+        "assignment",
+        "deadline"
+      ]
+    },
+    {
+      "id": "INT_EX_127",
+      "topic": "exam_details",
+      "subject": "Sociology",
+      "intent_name": "sociology_exam",
+      "patterns": [
+        "When is the Sociology exam?",
+        "Sociology exam date?",
+        "Date for Sociology final?"
+      ],
+      "response": "The Sociology final exam is scheduled for May 29, 2026 at 10:00 AM.",
+      "tags": [
+        "sociology",
+        "exam",
+        "date"
+      ]
+    },
+    {
+      "id": "INT_AS_128",
+      "topic": "assignment_deadlines",
+      "subject": "Sociology",
+      "intent_name": "sociology_assignment",
+      "patterns": [
+        "When is the Sociology assignment due?",
+        "Sociology project deadline?",
+        "Submit Sociology homework date?"
+      ],
+      "response": "The Sociology assignment submission deadline is May 01, 2026. Please upload your work to the LMS before 11:59 PM.",
+      "tags": [
+        "sociology",
+        "assignment",
+        "deadline"
+      ]
+    },
+    {
+      "id": "INT_EX_129",
+      "topic": "exam_details",
+      "subject": "Political Science",
+      "intent_name": "political_science_exam",
+      "patterns": [
+        "When is the Political Science exam?",
+        "Political Science exam date?",
+        "Date for Political Science final?"
+      ],
+      "response": "The Political Science final exam is scheduled for May 30, 2026 at 10:00 AM.",
+      "tags": [
+        "political science",
+        "exam",
+        "date"
+      ]
+    },
+    {
+      "id": "INT_AS_130",
+      "topic": "assignment_deadlines",
+      "subject": "Political Science",
+      "intent_name": "political_science_assignment",
+      "patterns": [
+        "When is the Political Science assignment due?",
+        "Political Science project deadline?",
+        "Submit Political Science homework date?"
+      ],
+      "response": "The Political Science assignment submission deadline is May 05, 2026. Please upload your work to the LMS before 11:59 PM.",
+      "tags": [
+        "political science",
+        "assignment",
+        "deadline"
+      ]
+    },
+    {
+      "id": "INT_EX_131",
+      "topic": "exam_details",
+      "subject": "Environmental Science",
+      "intent_name": "environmental_science_exam",
+      "patterns": [
+        "When is the Environmental Science exam?",
+        "Environmental Science exam date?",
+        "Date for Environmental Science final?"
+      ],
+      "response": "The Environmental Science final exam is scheduled for May 31, 2026 at 10:00 AM.",
+      "tags": [
+        "environmental science",
+        "exam",
+        "date"
+      ]
+    },
+    {
+      "id": "INT_AS_132",
+      "topic": "assignment_deadlines",
+      "subject": "Environmental Science",
+      "intent_name": "environmental_science_assignment",
+      "patterns": [
+        "When is the Environmental Science assignment due?",
+        "Environmental Science project deadline?",
+        "Submit Environmental Science homework date?"
+      ],
+      "response": "The Environmental Science assignment submission deadline is May 04, 2026. Please upload your work to the LMS before 11:59 PM.",
+      "tags": [
+        "environmental science",
+        "assignment",
+        "deadline"
+      ]
+    },
+    {
+      "id": "INT_EX_133",
+      "topic": "exam_details",
+      "subject": "Statistics",
+      "intent_name": "statistics_exam",
+      "patterns": [
+        "When is the Statistics exam?",
+        "Statistics exam date?",
+        "Date for Statistics final?"
+      ],
+      "response": "The Statistics final exam is scheduled for June 01, 2026 at 10:00 AM.",
+      "tags": [
+        "statistics",
+        "exam",
+        "date"
+      ]
+    },
+    {
+      "id": "INT_AS_134",
+      "topic": "assignment_deadlines",
+      "subject": "Statistics",
+      "intent_name": "statistics_assignment",
+      "patterns": [
+        "When is the Statistics assignment due?",
+        "Statistics project deadline?",
+        "Submit Statistics homework date?"
+      ],
+      "response": "The Statistics assignment submission deadline is May 03, 2026. Please upload your work to the LMS before 11:59 PM.",
+      "tags": [
+        "statistics",
+        "assignment",
+        "deadline"
+      ]
+    },
+    {
+      "id": "INT_EX_135",
+      "topic": "exam_details",
+      "subject": "Biotechnology",
+      "intent_name": "biotechnology_exam",
+      "patterns": [
+        "When is the Biotechnology exam?",
+        "Biotechnology exam date?",
+        "Date for Biotechnology final?"
+      ],
+      "response": "The Biotechnology final exam is scheduled for June 02, 2026 at 10:00 AM.",
+      "tags": [
+        "biotechnology",
+        "exam",
+        "date"
+      ]
+    },
+    {
+      "id": "INT_AS_136",
+      "topic": "assignment_deadlines",
+      "subject": "Biotechnology",
+      "intent_name": "biotechnology_assignment",
+      "patterns": [
+        "When is the Biotechnology assignment due?",
+        "Biotechnology project deadline?",
+        "Submit Biotechnology homework date?"
+      ],
+      "response": "The Biotechnology assignment submission deadline is May 02, 2026. Please upload your work to the LMS before 11:59 PM.",
+      "tags": [
+        "biotechnology",
+        "assignment",
+        "deadline"
+      ]
+    },
+    {
+      "id": "INT_EX_137",
+      "topic": "exam_details",
+      "subject": "Data Science",
+      "intent_name": "data_science_exam",
+      "patterns": [
+        "When is the Data Science exam?",
+        "Data Science exam date?",
+        "Date for Data Science final?"
+      ],
+      "response": "The Data Science final exam is scheduled for June 03, 2026 at 10:00 AM.",
+      "tags": [
+        "data science",
+        "exam",
+        "date"
+      ]
+    },
+    {
+      "id": "INT_AS_138",
+      "topic": "assignment_deadlines",
+      "subject": "Data Science",
+      "intent_name": "data_science_assignment",
+      "patterns": [
+        "When is the Data Science assignment due?",
+        "Data Science project deadline?",
+        "Submit Data Science homework date?"
+      ],
+      "response": "The Data Science assignment submission deadline is May 01, 2026. Please upload your work to the LMS before 11:59 PM.",
+      "tags": [
+        "data science",
+        "assignment",
+        "deadline"
+      ]
+    },
+    {
+      "id": "INT_FEE_01",
+      "topic": "fee_admission",
+      "subject": "General",
+      "intent_name": "fee_deadline",
+      "patterns": [
+        "When is the last date to pay fees?",
+        "Fee payment deadline?",
+        "Last date for tuition fees?"
+      ],
+      "response": "The last date for paying semester fees is April 30, 2026. Late payments will incur a fine of $50.",
+      "tags": [
+        "fee",
+        "payment",
+        "deadline",
+        "tuition"
+      ]
+    },
+    {
+      "id": "INT_SCH_01",
+      "topic": "scholarships",
+      "subject": "General",
+      "intent_name": "scholarship_deadline",
+      "patterns": [
+        "When is the last date to apply for scholarships?",
+        "Scholarship application deadline?",
+        "Apply for scholarship last date?"
+      ],
+      "response": "The last date to apply for all university scholarships is May 10, 2026. Late applications will not be considered.",
+      "tags": [
+        "scholarship",
+        "apply",
+        "deadline",
+        "last date"
+      ]
+    },
+    {
+      "id": "INT_SCH_02",
+      "topic": "scholarships",
+      "subject": "General",
+      "intent_name": "scholarship_eligibility",
+      "patterns": [
+        "Am I eligible for scholarship?",
+        "Scholarship eligibility criteria?",
+        "Who can apply for merit scholarship?"
+      ],
+      "response": "Eligibility for the Merit-Based Scholarship requires a minimum GPA of 3.8. Need-Based Aid requires proof of household income below $40,000. Research Grants require a faculty-approved proposal.",
+      "tags": [
+        "scholarship",
+        "eligibility",
+        "criteria",
+        "GPA"
+      ]
+    }
+  ],
+  "subject_syllabus_qa": [
+    {
+      "subject": "Mathematics",
+      "topics": [
+        "Calculus",
+        "Linear Algebra",
+        "Differential Equations",
+        "Statistics",
+        "Discrete Mathematics"
+      ],
+      "qa": [
+        {
+          "question": "What topics are covered in Mathematics this semester?",
+          "answer": "Mathematics covers Calculus, Linear Algebra, Differential Equations, Probability & Statistics, and Discrete Mathematics as per the syllabus on the portal."
+        },
+        {
+          "question": "Is Mathematics difficult?",
+          "answer": "Mathematics requires regular practice. Your faculty offers tutorial sessions and extra help. Visit the Math lab or attend doubt-clearing sessions listed on the timetable."
+        }
+      ]
+    },
+    {
+      "subject": "Physics",
+      "topics": [
+        "Mechanics",
+        "Thermodynamics",
+        "Electromagnetism",
+        "Optics",
+        "Quantum Physics"
+      ],
+      "qa": [
+        {
+          "question": "What is covered in Physics this semester?",
+          "answer": "Physics covers Mechanics, Thermodynamics, Electromagnetism, Optics, and an introduction to Quantum Physics along with lab practicals."
+        },
+        {
+          "question": "Is Physics practical compulsory?",
+          "answer": "Yes, Physics practical is a compulsory component with separate internal marks. Missing practicals without valid reason may result in attendance shortage."
+        }
+      ]
+    },
+    {
+      "subject": "Chemistry",
+      "topics": [
+        "Organic Chemistry",
+        "Inorganic Chemistry",
+        "Physical Chemistry",
+        "Analytical Chemistry"
+      ],
+      "qa": [
+        {
+          "question": "What is covered in Chemistry?",
+          "answer": "Chemistry covers Organic, Inorganic, Physical, and Analytical Chemistry. Lab sessions include volumetric analysis and synthesis experiments."
+        },
+        {
+          "question": "What safety rules apply in the Chemistry lab?",
+          "answer": "Always wear a lab coat, gloves, and safety goggles. No food or drink in the lab. Follow disposal instructions for chemicals. Report spills to the lab instructor immediately."
+        }
+      ]
+    },
+    {
+      "subject": "Computer Science",
+      "topics": [
+        "Data Structures",
+        "Algorithms",
+        "Operating Systems",
+        "DBMS",
+        "Networking",
+        "Machine Learning"
+      ],
+      "qa": [
+        {
+          "question": "What subjects are taught in Computer Science?",
+          "answer": "CS covers Data Structures, Algorithms, Operating Systems, Database Management Systems, Computer Networks, and electives like Machine Learning and Web Development."
+        },
+        {
+          "question": "Which programming languages are taught?",
+          "answer": "The CS programme teaches Python, Java, C/C++, SQL, and web technologies (HTML/CSS/JS). Electives may include R, Scala, or Go."
+        }
+      ]
+    },
+    {
+      "subject": "Electronics",
+      "topics": [
+        "Circuit Theory",
+        "Digital Electronics",
+        "Microprocessors",
+        "VLSI",
+        "Signal Processing"
+      ],
+      "qa": [
+        {
+          "question": "What is covered in Electronics Engineering?",
+          "answer": "Electronics covers Circuit Theory, Digital Electronics, Microprocessors, VLSI Design, and Signal & Image Processing along with lab experiments."
+        }
+      ]
+    },
+    {
+      "subject": "Mechanical Engineering",
+      "topics": [
+        "Thermodynamics",
+        "Fluid Mechanics",
+        "Machine Design",
+        "Manufacturing",
+        "CAD/CAM"
+      ],
+      "qa": [
+        {
+          "question": "What subjects are in Mechanical Engineering?",
+          "answer": "Mechanical Engineering covers Thermodynamics, Fluid Mechanics, Machine Design, Manufacturing Technology, Engineering Materials, and CAD/CAM."
+        }
+      ]
+    },
+    {
+      "subject": "Civil Engineering",
+      "topics": [
+        "Structural Analysis",
+        "Geotechnical Engineering",
+        "Fluid Mechanics",
+        "Construction Management",
+        "Surveying"
+      ],
+      "qa": [
+        {
+          "question": "What is taught in Civil Engineering?",
+          "answer": "Civil Engineering covers Structural Analysis, Geotechnical Engineering, Fluid Mechanics, Construction Management, Surveying, and Environmental Engineering."
+        }
+      ]
+    },
+    {
+      "subject": "Electrical Engineering",
+      "topics": [
+        "Power Systems",
+        "Control Systems",
+        "Electrical Machines",
+        "Power Electronics",
+        "Renewable Energy"
+      ],
+      "qa": [
+        {
+          "question": "What subjects are covered in Electrical Engineering?",
+          "answer": "Electrical Engineering covers Power Systems, Control Systems, Electrical Machines, Power Electronics, and emerging areas like Renewable Energy and Smart Grids."
+        }
+      ]
+    },
+    {
+      "subject": "English Literature",
+      "topics": [
+        "British Literature",
+        "American Literature",
+        "Poetry",
+        "Drama",
+        "Literary Theory"
+      ],
+      "qa": [
+        {
+          "question": "What is studied in English Literature?",
+          "answer": "English Literature covers British and American Literature, Poetry, Drama, Short Fiction, and Literary Theory. Students write essays and present seminars."
+        },
+        {
+          "question": "What citation style is used for English assignments?",
+          "answer": "MLA (Modern Language Association) format is the standard citation style for English Literature assignments. Refer to the MLA Handbook or Purdue OWL for guidelines."
+        }
+      ]
+    },
+    {
+      "subject": "Economics",
+      "topics": [
+        "Microeconomics",
+        "Macroeconomics",
+        "Econometrics",
+        "Development Economics",
+        "International Trade"
+      ],
+      "qa": [
+        {
+          "question": "What topics are covered in Economics?",
+          "answer": "Economics covers Microeconomics, Macroeconomics, Econometrics, Development Economics, and International Trade & Finance."
+        }
+      ]
+    },
+    {
+      "subject": "Business Administration",
+      "topics": [
+        "Management",
+        "Marketing",
+        "Finance",
+        "HRM",
+        "Operations",
+        "Entrepreneurship"
+      ],
+      "qa": [
+        {
+          "question": "What is studied in Business Administration (MBA/BBA)?",
+          "answer": "Business Administration covers Management Principles, Marketing, Financial Management, Human Resource Management, Operations, Strategy, and Entrepreneurship."
+        }
+      ]
+    },
+    {
+      "subject": "Psychology",
+      "topics": [
+        "Cognitive Psychology",
+        "Developmental Psychology",
+        "Social Psychology",
+        "Abnormal Psychology",
+        "Research Methods"
+      ],
+      "qa": [
+        {
+          "question": "What topics are in the Psychology syllabus?",
+          "answer": "Psychology covers Cognitive, Developmental, Social, Abnormal, and Clinical Psychology along with Research Methods and Statistics for Psychology."
+        }
+      ]
+    },
+    {
+      "subject": "Data Science",
+      "topics": [
+        "Machine Learning",
+        "Big Data",
+        "Python for Data Science",
+        "Data Visualization",
+        "Deep Learning",
+        "NLP"
+      ],
+      "qa": [
+        {
+          "question": "What is taught in Data Science?",
+          "answer": "Data Science covers Python/R, Machine Learning, Big Data tools (Hadoop/Spark), Data Visualization, Deep Learning, and Natural Language Processing."
+        },
+        {
+          "question": "What software is used in Data Science?",
+          "answer": "Students use Python (pandas, scikit-learn, TensorFlow), Jupyter Notebooks, Tableau, SQL, and cloud platforms like AWS or Google Colab."
+        }
+      ]
+    },
+    {
+      "subject": "Biotechnology",
+      "topics": [
+        "Molecular Biology",
+        "Genetics",
+        "Bioinformatics",
+        "Microbiology",
+        "Bioprocess Engineering"
+      ],
+      "qa": [
+        {
+          "question": "What is covered in Biotechnology?",
+          "answer": "Biotechnology covers Molecular Biology, Genetics, Bioinformatics, Microbiology, Immunology, and Bioprocess Engineering along with wet lab practicals."
+        }
+      ]
+    },
+    {
+      "subject": "Statistics",
+      "topics": [
+        "Probability Theory",
+        "Statistical Inference",
+        "Regression",
+        "Time Series",
+        "Sampling Methods"
+      ],
+      "qa": [
+        {
+          "question": "What topics are in Statistics?",
+          "answer": "Statistics covers Probability Theory, Statistical Inference, Regression Analysis, Time Series, Sampling Methods, and Applied Statistics using R or SPSS."
+        }
+      ]
+    }
+  ],
+  "fallback_responses": [
+    "I'm sorry, I didn't quite understand that. Could you rephrase your question?",
+    "I couldn't find an answer for that. Please contact the student support desk or visit the university portal.",
+    "That's a great question! Let me connect you to the relevant department. Please hold.",
+    "I don't have information on that right now. Try checking the university website or portal for the latest updates."
+  ],
+  "escalation_triggers": [
+    {
+      "trigger": "fee dispute",
+      "action": "Raise support ticket",
+      "contact": "Finance Office",
+      "phone": "+1-432-720-3503"
+    },
+    {
+      "trigger": "medical emergency",
+      "action": "Provide emergency contact",
+      "contact": "Dean of Students",
+      "phone": "+1-517-303-5828"
+    },
+    {
+      "trigger": "not understood after 2 attempts",
+      "action": "Transfer to live agent",
+      "contact": "Student Support Desk",
+      "phone": "+1-967-149-5196"
+    },
+    {
+      "trigger": "exam malpractice",
+      "action": "Escalate to exam cell",
+      "contact": "Examination Controller",
+      "phone": "+1-135-682-6848"
+    },
+    {
+      "trigger": "mental health concern",
+      "action": "Connect to counsellor",
+      "contact": "University Counselling Centre",
+      "phone": "+1-649-664-8561"
+    }
+  ],
+  "contacts": {
+    "student_support": "+1-819-202-1165",
+    "finance_office": "+1-724-824-5334",
+    "exam_cell": "+1-857-455-1395",
+    "it_helpdesk": "+1-144-474-2541",
+    "scholarship_office": "+1-430-659-4803"
+  }
+}
